@@ -1,7 +1,5 @@
 "use strict";
 
-var _app = require("./app");
-
 var _script = require("./script");
 
 describe("testing letters", function () {
@@ -13,25 +11,29 @@ describe("testing letters", function () {
     var string = (0, _script.lowerCaseString)("ROB IS HAPPY");
     expect(string).toBe("rob is happy");
   });
-  it("should return .- when given the string of `a` ", function () {
-    var string = englishToMorse("a");
+  it("should return .- when given the word of `a` ", function () {
+    var string = (0, _script.englishToMorse)("a");
     expect(string).toBe(".-");
   });
   it("should return .-. --- -... when given the string `rob` with no spaces ", function () {
-    var string = englishToMorse("rob");
+    var string = (0, _script.englishToMorse)("rob");
     expect(string).toBe(".-. --- -...");
   });
-  it("shouldn't return a comma", function () {
-    var string = englishToMorse("hello");
-    expect(string).toBe(".... . .-.. .-.. ---");
+  it("shouldn't return a comma sign but return it in morse code", function () {
+    var string = (0, _script.englishToMorse)("hello,rob");
+    expect(string).toBe(".... . .-.. .-.. --- --..-- .-. --- -...");
   });
   it("should has a space between each morse code", function () {
-    var string = englishToMorse("hello");
+    var string = (0, _script.englishToMorse)("hello");
     expect(string).toBe(".... . .-.. .-.. ---");
   });
   it("should return the letter that is not match with the letter that defined in englishToMorse variable", function () {
-    var string = englishToMorse("=");
+    var string = (0, _script.englishToMorse)("=");
     expect(string).toBe("=");
+  });
+  it("should handle number correctly", function () {
+    var string = (0, _script.englishToMorse)("1234");
+    expect(string).toBe(".---- ..--- ...-- ....-");
   });
 });
 describe("testing morse code", function () {
@@ -50,5 +52,9 @@ describe("testing morse code", function () {
   it("shouldn't return a comma between the letters", function () {
     var string = morseToEnglish(".... . .-.. .-.. ---");
     expect(string).toBe("hello");
+  });
+  it("should handle space between words", function () {
+    var string = morseToEnglish(".... ..  -- ..- --");
+    expect(string).toBe("hi mum");
   });
 });

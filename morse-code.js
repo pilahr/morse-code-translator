@@ -1,10 +1,4 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.morseCode = void 0;
-var morseCode = {
+export const morseCode = {
   0: "-----",
   1: ".----",
   2: "..---",
@@ -49,6 +43,5 @@ var morseCode = {
   "/": "-..-.",
   "@": ".--.-.",
   "(": "-.--.",
-  ")": "-.--.-"
+  ")": "-.--.-",
 };
-exports.morseCode = morseCode;
