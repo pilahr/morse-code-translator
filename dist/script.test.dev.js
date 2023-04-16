@@ -38,23 +38,23 @@ describe("testing letters", function () {
 });
 describe("testing morse code", function () {
   it("should return piya when given the string of `.--. .. -.-- .-` ", function () {
-    var string = morseToEnglish(".--. .. -.-- .-");
+    var string = (0, _script.morseToEnglish)(".--. .. -.-- .-");
     expect(string).toBe("piya");
   });
   it("should return t when given the sting of `-`", function () {
-    var string = morseToEnglish("-");
+    var string = (0, _script.morseToEnglish)("-");
     expect(string).toBe("t");
   });
   it("shouldn't return a space between the letters", function () {
-    var string = morseToEnglish(".... . .-.. .-.. ---");
+    var string = (0, _script.morseToEnglish)(".... . .-.. .-.. ---");
     expect(string).toBe("hello");
   });
   it("shouldn't return a comma between the letters", function () {
-    var string = morseToEnglish(".... . .-.. .-.. ---");
+    var string = (0, _script.morseToEnglish)(".... . .-.. .-.. ---");
     expect(string).toBe("hello");
   });
   it("should handle space between words", function () {
-    var string = morseToEnglish(".... ..  -- ..- --");
+    var string = (0, _script.morseToEnglish)(".... ..  -- ..- --");
     expect(string).toBe("hi mum");
   });
 });
