@@ -9,10 +9,12 @@ var decodeButton = document.querySelector(".morseInput__button");
 
 var handleEnglishOnClick = function handleEnglishOnClick() {
   morseArea.innerHTML = (0, _script.englishToMorse)(englishArea.value);
+  morseArea.innerHTML += "";
 };
 
 var handleMorseOnClick = function handleMorseOnClick() {
   englishArea.innerHTML = (0, _script.morseToEnglish)(morseArea.value);
+  englishArea.innerHTML += "";
 };
 
 codeButton.addEventListener("click", handleEnglishOnClick);

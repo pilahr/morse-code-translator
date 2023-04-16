@@ -7,10 +7,12 @@ const decodeButton = document.querySelector(".morseInput__button");
 
 const handleEnglishOnClick = () => {
   morseArea.innerHTML = englishToMorse(englishArea.value);
+  morseArea.innerHTML += "";
 };
 
 const handleMorseOnClick = () => {
   englishArea.innerHTML = morseToEnglish(morseArea.value);
+  englishArea.innerHTML += "";
 };
 
 codeButton.addEventListener("click", handleEnglishOnClick);
