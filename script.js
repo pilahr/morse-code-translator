@@ -1,4 +1,5 @@
-import { morseCode } from "./morse-code";
+import { morseCode } from "./morse-code.js";
+import { decoded } from "./morse-code.js";
 
 export const lowerCaseString = (string) => {
   const words = string.split(" ");
@@ -9,42 +10,28 @@ export const lowerCaseString = (string) => {
 };
 
 export const englishToMorse = (string) => {
-  string = string.toLowerCase();
+  const array = string.split(" ").toLowerCase();
+  const newArray = [];
 
-  const arr1 = string.split("");
-
-  const arr2 = arr1.map((word) => {
-    if (morseCode[word]) {
-      return morseCode[word];
-    } else {
-      return word;
+  for (let i = 0; i < array.length; i++) {
+    for (const key in morseCode) {
+      if (array[i] == key) {
+        newArray.push(morseCode[key]);
+      }
     }
-  });
-
-  let code = arr2.join(" ");
-  return code;
+  }
+  return newArray.join(" ").toString("");
 };
 
-
-// export const englishToMorse = (string) => {
-//   const englishInput = document.querySelector(".englishInput");
-//   const morseInput = document.querySelector(".morseInput");
-//   const input = englishInput.value;
-//   const lowerCaseInput = input.toLowerCase();
-//   const englishInputArray = lowerCaseInput.split("").map((word) => {
-//     if (morseCode[word]) {
-//       return morseCode[word];
-//     } else {
-//       return word;
-//     }
-//   });
-//   const result = englishInputArray.join(" ");
-//   const code = morseInput.value;
-//   return code;
-// };
-
-// const englishInputButton = document.querySelector(".englishInput__button");
-
-// englishInputButton.addEventListener("click", () => {
-//   return englishToMorse();
-// });
+export const morseToEnglish = (string) => {
+  const array = string.split("   ");
+  const newArray = [];
+  for (let i = 0; i < array.lenght; i++) {
+    for (const key in decoded) {
+      if (array[i] == key) {
+        newArray.push(decoded[key]);
+      }
+    }
+  }
+  return newArray.join("").toString("");
+};

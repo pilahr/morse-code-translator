@@ -1,4 +1,4 @@
-import { lowerCaseString, englishToMorse } from "./script";
+import { lowerCaseString, englishToMorse, morseToEnglish } from "./script";
 
 describe("testing letters", () => {
   it("should change the original string to lower case `rob` even the input is a capital letters", () => {

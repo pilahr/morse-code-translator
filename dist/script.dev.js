@@ -3,9 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.englishToMorse = exports.lowerCaseString = void 0;
+exports.morseToEnglish = exports.englishToMorse = exports.lowerCaseString = void 0;
 
-var _morseCode = require("./morse-code");
+var _morseCode = require("./morse-code.js");
 
 var lowerCaseString = function lowerCaseString(string) {
   var words = string.split(" ");
@@ -18,37 +18,35 @@ var lowerCaseString = function lowerCaseString(string) {
 exports.lowerCaseString = lowerCaseString;
 
 var englishToMorse = function englishToMorse(string) {
-  string = string.toLowerCase();
-  var arr1 = string.split("");
-  var arr2 = arr1.map(function (word) {
-    if (_morseCode.morseCode[word]) {
-      return _morseCode.morseCode[word];
-    } else {
-      return word;
-    }
-  });
-  var code = arr2.join(" ");
-  return code;
-}; // export const englishToMorse = (string) => {
-//   const englishInput = document.querySelector(".englishInput");
-//   const morseInput = document.querySelector(".morseInput");
-//   const input = englishInput.value;
-//   const lowerCaseInput = input.toLowerCase();
-//   const englishInputArray = lowerCaseInput.split("").map((word) => {
-//     if (morseCode[word]) {
-//       return morseCode[word];
-//     } else {
-//       return word;
-//     }
-//   });
-//   const result = englishInputArray.join(" ");
-//   const code = morseInput.value;
-//   return code;
-// };
-// const englishInputButton = document.querySelector(".englishInput__button");
-// englishInputButton.addEventListener("click", () => {
-//   return englishToMorse();
-// });
+  var array = string.split(" ").toLowerCase();
+  var newArray = [];
 
+  for (var i = 0; i < array.length; i++) {
+    for (var key in _morseCode.morseCode) {
+      if (array[i] == key) {
+        newArray.push(_morseCode.morseCode[key]);
+      }
+    }
+  }
+
+  return newArray.join(" ").toString("");
+};
 
 exports.englishToMorse = englishToMorse;
+
+var morseToEnglish = function morseToEnglish(string) {
+  var array = string.split("   ");
+  var newArray = [];
+
+  for (var i = 0; i < array.lenght; i++) {
+    for (var key in _morseCode.decoded) {
+      if (array[i] == key) {
+        newArray.push(_morseCode.decoded[key]);
+      }
+    }
+  }
+
+  return newArray.join("").toString("");
+};
+
+exports.morseToEnglish = morseToEnglish;
