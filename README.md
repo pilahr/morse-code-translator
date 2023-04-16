@@ -1,4 +1,4 @@
-Morse-code-translator
+Morse Code Translator
 
 ![A96F0EEC-BF73-4A9C-BCD7-6BB6EBC37084](https://user-images.githubusercontent.com/125895065/232329650-2700eb38-e04f-448f-b978-a5627598e77b.png)
 
