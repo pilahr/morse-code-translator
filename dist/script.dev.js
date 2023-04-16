@@ -18,41 +18,35 @@ var lowerCaseString = function lowerCaseString(string) {
 exports.lowerCaseString = lowerCaseString;
 
 var englishToMorse = function englishToMorse(string) {
-  string = string.toLowerCase();
-  var array = string.split(" ");
-  var array2 = array.map(function (word) {
-    if (_morseCode.morseCode[word]) {
-      return _morseCode.morseCode[word];
-    } else {
-      return word;
+  var array = string.split(" ").toLowerCase();
+  var newArray = [];
+
+  for (var i = 0; i < array.length; i++) {
+    for (var key in _morseCode.morseCode) {
+      if (array[i] == key) {
+        newArray.push(_morseCode.morseCode[key]);
+      }
     }
-  });
-  var code = array2.join(" ");
-  return code;
+  }
+
+  return newArray.join(" ").toString("");
 };
 
 exports.englishToMorse = englishToMorse;
 
 var morseToEnglish = function morseToEnglish(string) {
-  var words = string.split("   ");
-  var letters = words.map(function (morseWord) {
-    return morseWord.split(" ");
-  });
-  var result = [];
+  var array = string.split("   ");
+  var newArray = [];
 
-  for (var i = 0; i < letters.length; i++) {
-    result[i] = [];
-
-    for (var x = 0; x < letters[i].length; x++) {
-      if (_morseCode.decoded[letters[i][x]]) {
-        result[i].push(_morseCode.decoded[letters[i][x]]);
+  for (var i = 0; i < array.lenght; i++) {
+    for (var key in _morseCode.decoded) {
+      if (array[i] == key) {
+        newArray.push(_morseCode.decoded[key]);
       }
     }
   }
 
-  return result.map(function (array) {
-    return array.join("");
-  }).join(" ");
+  return newArray.join("").toString("");
 };
 
 exports.morseToEnglish = morseToEnglish;
