@@ -2,7 +2,6 @@ import { morseCode } from "./morse-code.js";
 import { decoded } from "./morse-code.js";
 
 export const englishToMorse = (string) => {
-
   const englishToMorse = string
     .toLowerCase()
     .split("")
