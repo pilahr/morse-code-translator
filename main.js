@@ -6,11 +6,12 @@ const englishInputButton = document.querySelector(".englishInput__button");
 const morseInputButton = document.querySelector(".morseInput__button");
 
 const handleEnglishOnClick = () => {
-  morseInput.innerHTML = englishToMorse(englishInput.value);
+  englishInput.innerHTML = morseToEnglish(morseInput.value);
+  englishInput.value = "";
 };
 
 const handleMorseOnClick = () => {
-  englishInput.innerHTML = morseToEnglish(morseInput.value);
+  englishInput.innerHTML = englishToMorse(morseInput.value);
 };
 
 englishInputButton.addEventListener("click", handleEnglishOnClick);

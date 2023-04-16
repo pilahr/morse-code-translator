@@ -8,11 +8,12 @@ var englishInputButton = document.querySelector(".englishInput__button");
 var morseInputButton = document.querySelector(".morseInput__button");
 
 var handleEnglishOnClick = function handleEnglishOnClick() {
-  morseInput.innerHTML = (0, _script.englishToMorse)(englishInput.value);
+  englishInput.innerHTML = (0, _script.morseToEnglish)(morseInput.value);
+  englishInput.value = "";
 };
 
 var handleMorseOnClick = function handleMorseOnClick() {
-  englishInput.innerHTML = (0, _script.morseToEnglish)(morseInput.value);
+  englishInput.innerHTML = (0, _script.englishToMorse)(morseInput.value);
 };
 
 englishInputButton.addEventListener("click", handleEnglishOnClick);
