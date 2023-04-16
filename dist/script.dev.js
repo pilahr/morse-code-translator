@@ -3,50 +3,32 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.morseToEnglish = exports.englishToMorse = exports.lowerCaseString = void 0;
+exports.morseToEnglish = exports.englishToMorse = void 0;
 
 var _morseCode = require("./morse-code.js");
 
-var lowerCaseString = function lowerCaseString(string) {
-  var words = string.split(" ");
-  var lowerCase = words.map(function (word) {
-    return word.toLowerCase();
-  });
-  return lowerCase.join(" ");
-};
 
-exports.lowerCaseString = lowerCaseString;
-
-var englishToMorse = function englishToMorse(string) {
-  var array = string.split(" ").toLowerCase();
-  var newArray = [];
-
-  for (var i = 0; i < array.length; i++) {
-    for (var key in _morseCode.morseCode) {
-      if (array[i] == key) {
-        newArray.push(_morseCode.morseCode[key]);
-      }
+  var englishToMorse = string.toLowerCase().split("").map(function (_char) {
+    if (_morseCode.morseCode[_char]) {
+      return _morseCode.morseCode[_char];
+    } else {
+      return _char;
     }
-  }
+  });
+  return englishToMorse.join(" ");
 
-  return newArray.join(" ").toString("");
 };
 
 exports.englishToMorse = englishToMorse;
 
 var morseToEnglish = function morseToEnglish(string) {
-  var array = string.split("   ");
-  var newArray = [];
 
-  for (var i = 0; i < array.lenght; i++) {
-    for (var key in _morseCode.decoded) {
-      if (array[i] == key) {
-        newArray.push(_morseCode.decoded[key]);
-      }
-    }
-  }
+  var morseCharacters = string.split(" ");
+  var englishCharacters = morseCharacters.map(function (_char2) {
+    return _morseCode.decoded[_char2];
+  });
+  return englishCharacters.join("");
 
-  return newArray.join("").toString("");
 };
 
 exports.morseToEnglish = morseToEnglish;

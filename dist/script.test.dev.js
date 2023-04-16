@@ -3,14 +3,6 @@
 var _script = require("./script");
 
 describe("testing letters", function () {
-  it("should change the original string to lower case `rob` even the input is a capital letters", function () {
-    var string = (0, _script.lowerCaseString)("ROB");
-    expect(string).toBe("rob");
-  });
-  it("should change the original string to lower case `rob` even the input is a capital letters", function () {
-    var string = (0, _script.lowerCaseString)("ROB IS HAPPY");
-    expect(string).toBe("rob is happy");
-  });
   it("should return .- when given the word of `a` ", function () {
     var string = (0, _script.englishToMorse)("a");
     expect(string).toBe(".-");
@@ -54,7 +46,7 @@ describe("testing morse code", function () {
     expect(string).toBe("hello");
   });
   it("should handle space between words", function () {
-    var string = (0, _script.morseToEnglish)(".... ..  -- ..- --");
+    var string = (0, _script.morseToEnglish)(".... .. / -- ..- --");
     expect(string).toBe("hi mum");
   });
 });

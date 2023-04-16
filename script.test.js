@@ -1,16 +1,6 @@
 import { lowerCaseString, englishToMorse, morseToEnglish } from "./script";
 
 describe("testing letters", () => {
-  it("should change the original string to lower case `rob` even the input is a capital letters", () => {
-    const string = lowerCaseString("ROB");
-    expect(string).toBe("rob");
-  });
-
-  it("should change the original string to lower case `rob` even the input is a capital letters", () => {
-    const string = lowerCaseString("ROB IS HAPPY");
-    expect(string).toBe("rob is happy");
-  });
-
   it("should return .- when given the word of `a` ", () => {
     const string = englishToMorse("a");
 
@@ -65,7 +55,7 @@ describe("testing morse code", () => {
   });
 
   it("should handle space between words", () => {
-    const string = morseToEnglish(".... ..  -- ..- --");
+    const string = morseToEnglish(".... .. / -- ..- --");
     expect(string).toBe("hi mum");
   });
 });
