@@ -16,8 +16,9 @@ var _morseCode = require("./morse-code.js");
     }
   });
   return englishToMorse.join(" ");
+  return englishToMorse.join(" ");
 
-};
+
 
 exports.englishToMorse = englishToMorse;
 
